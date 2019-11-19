@@ -10,7 +10,7 @@ panfile = "data_genome/Anogam_long.pep_Pfamscan.seqs"
 panform = "pfamscan"
 
 # where to store output?
-outcode = "results/" # (folder + prefix)
+outcode = "results_de/" # (folder + prefix)
 
 
 # salmon expression files
@@ -434,7 +434,7 @@ message("\n\n### FI! ###\n\n")
 
 
 
-stop("ARA")
+stop("FINISHED WITHOUT PROBLEMS")
 
 
 
