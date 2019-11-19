@@ -1,0 +1,22 @@
+{
+    "read_files": "( input//Anogam_s11BCM_1.fastq.gz, input//Anogam_s11BCM_2.fastq.gz )",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 10956527,
+    "num_assigned_fragments": 10956527,
+    "num_frags_with_consistent_mappings": 8826985,
+    "num_frags_with_inconsistent_or_orphan_mappings": 2129567,
+    "strand_mapping_bias": 0.49927659331017329,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 4419878,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 4407107,
+    "SF": 1298583,
+    "SR": 830984,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}
