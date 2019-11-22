@@ -1,0 +1,203 @@
+IQ-TREE 1.6.10 built Feb 19 2019
+
+Input file name: FAsynthase.00.lt.fasta
+Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 807160
+
+REFERENCES
+----------
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2017) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol Biol Evol, in press.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 16 sequences with 237 amino-acid sites
+Number of constant sites: 24 (= 10.1266% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 24 (= 10.1266% of all sites)
+Number of parsimony informative sites: 195
+Number of distinct site patterns: 225
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: LG+G4
+
+List of models sorted by BIC scores: 
+
+Model             LogL          AIC      w-AIC      AICc     w-AICc       BIC      w-BIC
+LG+G4            -4630.1803   9320.3607 + 0.1503   9329.3898 + 0.4831   9424.4025 + 0.7929
+LG+I+G4          -4628.7887   9319.5774 + 0.2224   9329.2555 + 0.5166   9427.0873 + 0.2071
+WAG+G4           -4661.2900   9382.5801 - 0.0000   9391.6092 - 0.0000   9486.6219 - 0.0000
+LG+F+G4          -4610.8592   9319.7184 + 0.2073   9345.9216 - 0.0001   9489.6533 - 0.0000
+WAG+I+G4         -4660.1694   9382.3388 - 0.0000   9392.0168 - 0.0000   9489.8486 - 0.0000
+LG+F+I+G4        -4609.1528   9318.3057 + 0.4200   9345.7250 - 0.0001   9491.7087 - 0.0000
+LG+I             -4671.3653   9402.7307 - 0.0000   9411.7598 - 0.0000   9506.7725 - 0.0000
+WAG+F+G4         -4633.6245   9365.2490 - 0.0000   9391.4523 - 0.0000   9535.1840 - 0.0000
+WAG+F+I+G4       -4632.3232   9364.6464 - 0.0000   9392.0657 - 0.0000   9538.0494 - 0.0000
+JTT+G4           -4692.8295   9445.6589 - 0.0000   9454.6880 - 0.0000   9549.7007 - 0.0000
+JTT+I+G4         -4691.1884   9444.3768 - 0.0000   9454.0548 - 0.0000   9551.8866 - 0.0000
+WAG+I            -4696.7125   9453.4250 - 0.0000   9462.4541 - 0.0000   9557.4668 - 0.0000
+LG               -4700.7574   9459.5149 - 0.0000   9467.9207 - 0.0000   9560.0886 - 0.0000
+LG+F+I           -4650.4202   9398.8404 - 0.0000   9425.0436 - 0.0000   9568.7754 - 0.0000
+WAG+F+I          -4666.6351   9431.2703 - 0.0000   9457.4735 - 0.0000   9601.2052 - 0.0000
+WAG              -4721.6005   9501.2011 - 0.0000   9509.6069 - 0.0000   9601.7748 - 0.0000
+LG+F             -4681.4814   9458.9627 - 0.0000   9483.9840 - 0.0000   9625.4296 - 0.0000
+JTT+F+G4         -4679.1003   9456.2007 - 0.0000   9482.4039 - 0.0000   9626.1356 - 0.0000
+JTT+F+I+G4       -4677.1462   9454.2924 - 0.0000   9481.7117 - 0.0000   9627.6954 - 0.0000
+JTT+I            -4737.1186   9534.2372 - 0.0000   9543.2664 - 0.0000   9638.2790 - 0.0000
+WAG+F            -4691.8347   9479.6695 - 0.0000   9504.6907 - 0.0000   9646.1363 - 0.0000
+JTT              -4771.5260   9601.0519 - 0.0000   9609.4577 - 0.0000   9701.6257 - 0.0000
+JTT+F+I          -4720.0639   9538.1278 - 0.0000   9564.3310 - 0.0000   9708.0627 - 0.0000
+JTT+F            -4755.7031   9607.4062 - 0.0000   9632.4275 - 0.0000   9773.8731 - 0.0000
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: LG+G4
+
+State frequencies: (model)
+
+Model of rate heterogeneity: Gamma with 4 categories
+Gamma shape alpha: 1.5608
+
+ Category  Relative_rate  Proportion
+  1         0.2346         0.2500
+  2         0.5984         0.2500
+  3         1.0538         0.2500
+  4         2.1133         0.2500
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -4623.9843 (s.e. 144.5847)
+Unconstrained log-likelihood (without tree): -1273.5661
+Number of free parameters (#branches + #model parameters): 30
+Akaike information criterion (AIC) score: 9307.9687
+Corrected Akaike information criterion (AICc) score: 9316.9978
+Bayesian information criterion (BIC) score: 9412.0105
+
+Total tree length (sum of branch lengths): 6.6882
+Sum of internal branch lengths: 4.6253 (69.1568% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'Dromel_FBtr0335386_18-257' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++---Dromel_FBtr0335386_18-257
+|
+|  +--Dromel_FBtr0335387_140-379
++--| (84)
+|  |  +--Anogam_AGAP009176-RA_42-278
+|  +--| (97)
+|     +--Aedaeg_AAEL001194-RA_31-269
+|
+|               +---Dromel_FBtr0305959_20-256
+|            +--| (50)
+|            |  +--Anogam_AGAP001899-RA_21-257
+|         +--| (67)
+|         |  +--Aedaeg_AAEL008160-RA_21-258
+|   +-----| (68)
+|   |     |        +---Aedaeg_AAEL002228-RA_13-251
+|   |     |     +--| (86)
+|   |     |     |  |  +--Aedaeg_AAEL022506-RA_13-250
+|   |     |     |  +--| (100)
+|   |     |     |     +--Aedaeg_AAEL025219-RA_13-250
+|   |     |  +--| (99)
+|   |     |  |  +---Aedaeg_AAEL002237-RA_14-250
+|   |     +--| (87)
+|   |        |    +--Anogam_AGAP028049-RA_30-268
+|   |        +----| (100)
+|   |             +--Anogam_AGAP008468-RA_15-263
++---| (74)
+    |                                              +-----Dromel_FBtr0078709_24-271
+    +----------------------------------------------| (100)
+                                                   |    +--Anogam_AGAP002809-RA_39-287
+                                                   +----| (97)
+                                                        +--Aedaeg_AAEL002113-RA_30-278
+
+Tree in newick format:
+
+(Dromel_FBtr0335386_18-257:0.2595474733,(Dromel_FBtr0335387_140-379:0.1126432774,(Anogam_AGAP009176-RA_42-278:0.0204203480,Aedaeg_AAEL001194-RA_31-269:0.0729180155)97:0.1294861635)84:0.1469637164,((((Dromel_FBtr0305959_20-256:0.2417363982,Anogam_AGAP001899-RA_21-257:0.0191258404)50:0.0134997679,Aedaeg_AAEL008160-RA_21-258:0.0097000036)67:0.1509261802,(((Aedaeg_AAEL002228-RA_13-251:0.2470218588,(Aedaeg_AAEL022506-RA_13-250:0.0237928842,Aedaeg_AAEL025219-RA_13-250:0.0375613779)100:0.1614496564)86:0.0469812482,Aedaeg_AAEL002237-RA_14-250:0.2428739411)99:0.1689030573,(Anogam_AGAP028049-RA_30-268:0.1256305459,Anogam_AGAP008468-RA_15-263:0.0852453427)100:0.2909481392)87:0.0798668950)68:0.3670285163,(Dromel_FBtr0078709_24-271:0.3281521201,(Anogam_AGAP002809-RA_39-287:0.0879527456,Aedaeg_AAEL002113-RA_30-278:0.1485291391)97:0.3042875999)100:2.5472190450)74:0.2177740155);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000bootstrap trees
+Log-likelihood of consensus tree: -4623.984843
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++---Dromel_FBtr0335386_18-257
+|
+|  +--Dromel_FBtr0335387_140-379
++--| (84)
+|  |  +--Anogam_AGAP009176-RA_42-278
+|  +--| (97)
+|     +--Aedaeg_AAEL001194-RA_31-269
+|
+|               +---Dromel_FBtr0305959_20-256
+|            +--| (50)
+|            |  +--Anogam_AGAP001899-RA_21-257
+|         +--| (67)
+|         |  +--Aedaeg_AAEL008160-RA_21-258
+|   +-----| (68)
+|   |     |        +---Aedaeg_AAEL002228-RA_13-251
+|   |     |     +--| (86)
+|   |     |     |  |  +--Aedaeg_AAEL022506-RA_13-250
+|   |     |     |  +--| (100)
+|   |     |     |     +--Aedaeg_AAEL025219-RA_13-250
+|   |     |  +--| (99)
+|   |     |  |  +---Aedaeg_AAEL002237-RA_14-250
+|   |     +--| (87)
+|   |        |    +--Anogam_AGAP028049-RA_30-268
+|   |        +----| (100)
+|   |             +--Anogam_AGAP008468-RA_15-263
++---| (74)
+    |                                              +-----Dromel_FBtr0078709_24-271
+    +----------------------------------------------| (100)
+                                                   |    +--Anogam_AGAP002809-RA_39-287
+                                                   +----| (97)
+                                                        +--Aedaeg_AAEL002113-RA_30-278
+
+
+Consensus tree in newick format: 
+
+(Dromel_FBtr0335386_18-257:0.2594196399,(Dromel_FBtr0335387_140-379:0.1126617154,(Anogam_AGAP009176-RA_42-278:0.0204202146,Aedaeg_AAEL001194-RA_31-269:0.0728962928)97:0.1294129887)84:0.1469834259,((((Dromel_FBtr0305959_20-256:0.2416715072,Anogam_AGAP001899-RA_21-257:0.0191188718)50:0.0134986429,Aedaeg_AAEL008160-RA_21-258:0.0096981224)67:0.1509993335,(((Aedaeg_AAEL002228-RA_13-251:0.2469527457,(Aedaeg_AAEL022506-RA_13-250:0.0237889028,Aedaeg_AAEL025219-RA_13-250:0.0375485177)100:0.1614082926)86:0.0469713740,Aedaeg_AAEL002237-RA_14-250:0.2428119675)99:0.1688215202,(Anogam_AGAP028049-RA_30-268:0.1256239236,Anogam_AGAP008468-RA_15-263:0.0852116795)100:0.2909094167)87:0.0798180502)68:0.3618572302,(Dromel_FBtr0078709_24-271:0.3262615863,(Anogam_AGAP002809-RA_39-287:0.0878975147,Aedaeg_AAEL002113-RA_30-278:0.1485596813)97:0.3058440382)100:2.5460142167)74:0.2218404294);
+
+TIME STAMP
+----------
+
+Date and time: Fri Nov 22 09:57:24 2019
+Total CPU time used: 44.879253 seconds (0h:0m:44s)
+Total wall-clock time used: 4.543591976 seconds (0h:0m:4s)
+

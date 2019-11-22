@@ -1,0 +1,222 @@
+IQ-TREE multicore version 1.6.10 for Linux 64-bit built Feb 19 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    monolit (AVX512, FMA3, 62 GB RAM)
+Command: iqtree -s FAreductase.00.lt.fasta -m TEST -mset LG,WAG,JTT -nt 10 -bb 1000 -pre FAreductase.00.lt.iqt
+Seed:    605874 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Nov 22 09:56:49 2019
+Kernel:  AVX+FMA - 10 threads (12 CPU cores detected)
+
+Reading alignment file FAreductase.00.lt.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 61 sequences with 208 columns, 203 distinct patterns
+180 parsimony-informative, 10 singleton sites, 18 constant sites
+                             Gap/Ambiguity  Composition  p-value
+   1  Dromel_FBtr0333415_16-286      1.44%    passed     99.95%
+   2  Dromel_FBtr0347004_16-286      1.44%    passed     90.82%
+   3  Dromel_FBtr0347003_16-286      1.44%    passed     99.55%
+   4  Dromel_FBtr0083329_16-286      1.44%    passed     96.09%
+   5  Dromel_FBtr0083330_16-286      1.44%    passed     96.35%
+   6  Dromel_FBtr0300865_27-297      1.44%    passed     91.57%
+   7  Dromel_FBtr0088449_39-310      0.96%    passed     99.14%
+   8  Anogam_AGAP005515-RA_23-295    0.96%    passed     84.83%
+   9  Aedaeg_AAEL013648-RB_23-294    1.44%    passed     91.31%
+  10  Dromel_FBtr0333800_14-282      1.44%    passed     80.69%
+  11  Anogam_AGAP004784-RA_20-289    1.44%    passed     98.51%
+  12  Aedaeg_AAEL013910-RA_20-289    1.44%    passed     99.99%
+  13  Aedaeg_AAEL013912-RA_20-289    1.44%    passed    100.00%
+  14  Aedaeg_AAEL026746-RA_26-295    1.44%    passed     94.86%
+  15  Anogam_AGAP004787-RA_22-292    0.96%    passed     99.80%
+  16  Aedaeg_AAEL024012-RA_32-300    1.44%    passed     96.62%
+  17  Anogam_AGAP001084-RA_36-305    1.44%    passed     89.68%
+  18  Aedaeg_AAEL024693-RA_36-144   55.29%    passed     45.45%
+  19  Aedaeg_AAEL021335-RA_36-305    1.44%    passed     85.35%
+  20  Aedaeg_AAEL027155-RA_52-321    1.44%    passed     85.35%
+  21  Aedaeg_AAEL026448-RA_3-50     86.54%    passed     14.69%
+  22  Dromel_FBtr0306250_130-400     0.96%    passed     97.06%
+  23  Aedaeg_AAEL007298-RD_35-305    0.96%    passed     65.44%
+  24  Anogam_AGAP009690-RA_32-301    0.96%    passed     42.75%
+  25  Aedaeg_AAEL013802-RA_75-344    0.96%    passed     99.88%
+  26  Dromel_FBtr0083822_23-295      0.96%    passed     56.53%
+  27  Dromel_FBtr0085345_43-311      1.44%    passed     65.75%
+  28  Anogam_AGAP011736-RA_47-316    0.96%    passed     83.00%
+  29  Aedaeg_AAEL006774-RA_49-318    0.96%    passed     79.60%
+  30  Dromel_FBtr0309244_19-287      0.96%    passed     99.66%
+  31  Anogam_AGAP003611-RA_21-289    0.96%    passed     90.99%
+  32  Aedaeg_AAEL014302-RB_37-305    0.96%    passed     86.72%
+  33  Dromel_FBtr0308071_26-295      0.96%    passed     99.76%
+  34  Anogam_AGAP002279-RA_44-314    0.96%    passed     89.83%
+  35  Aedaeg_AAEL008125-RA_28-298    0.96%    passed     99.86%
+  36  Dromel_FBtr0087120_17-287      0.96%    passed     98.98%
+  37  Anogam_AGAP003606-RA_16-286    0.96%    passed     92.24%
+  38  Aedaeg_AAEL007296-RB_17-288    0.96%    passed     95.43%
+  39  Anogam_AGAP005984-RB_39-309    1.92%    passed     68.46%
+  40  Aedaeg_AAEL007218-RE_35-304    1.92%    passed     60.72%
+  41  Anogam_AGAP005985-RA_24-292    1.92%    passed     93.09%
+  42  Anogam_AGAP005986-RA_25-294    1.92%    passed     90.38%
+  43  Aedaeg_AAEL007220-RA_24-293    1.92%    passed     83.46%
+  44  Aedaeg_AAEL001747-RB_34-302    1.92%    passed     90.51%
+  45  Aedaeg_AAEL001737-RA_30-298    1.92%    passed     42.71%
+  46  Anogam_AGAP001343-RA_21-287    1.44%    passed     99.26%
+  47  Aedaeg_AAEL008815-RB_15-281    1.44%    passed     80.92%
+  48  Dromel_FBtr0344834_81-350      1.44%    passed     91.85%
+  49  Anogam_AGAP010850-RA_32-306    1.44%    passed     66.01%
+  50  Aedaeg_AAEL006635-RB_33-309    1.44%    passed     95.13%
+  51  Anogam_AGAP010785-RA_31-304    1.44%    passed     74.24%
+  52  Aedaeg_AAEL000871-RA_26-299    1.44%    passed     22.90%
+  53  Anogam_AGAP029197-RA_29-300    1.44%    passed     89.66%
+  54  Anogam_AGAP029196-RA_20-293    1.44%    passed     60.45%
+  55  Aedaeg_AAEL000910-RA_20-293    1.44%    passed     94.78%
+  56  Aedaeg_AAEL000928-RB_20-289    1.44%    passed     64.84%
+  57  Aedaeg_AAEL000912-RA_16-284    1.44%    passed     68.42%
+  58  Aedaeg_AAEL000876-RA_15-283    1.44%    passed     80.15%
+  59  Dromel_FBtr0070423_20-288      1.92%    passed     81.09%
+  60  Aedaeg_AAEL000882-RB_22-289    1.92%    passed     62.47%
+  61  Dromel_FBtr0340065_50-319      0.96%    passed     92.99%
+WARNING: 2 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                          3.63%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: Aedaeg_AAEL027155-RA_52-321 is identical to Aedaeg_AAEL021335-RA_36-305 but kept for subsequent analysis
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.010 seconds
+NOTE: ModelFinder requires 9 MB RAM!
+ModelFinder will test 24 protein models (sample size: 208) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            15727.863    119 31693.727    32018.272    32090.894
+  2  LG+I          15522.156    120 31284.313    31618.106    31684.817
+  3  LG+G4         14976.478    120 30192.957    30526.750    30593.461
+  4  LG+I+G4       14954.811    121 30151.622    30494.924    30555.464
+  5  LG+F          15754.355    138 31784.710    32340.710    32245.290
+  6  LG+F+I        15573.293    139 31424.586    31996.939    31888.504
+  7  LG+F+G4       14973.874    139 30225.747    30798.100    30689.665
+  8  LG+F+I+G4     14959.294    140 30198.588    30787.842    30665.844
+  9  WAG           15851.030    119 31940.061    32264.606    32337.228
+ 10  WAG+I         15618.788    120 31477.576    31811.369    31878.081
+ 11  WAG+G4        15207.202    120 30654.404    30988.197    31054.908
+ 12  WAG+I+G4      15184.081    121 30610.162    30953.464    31014.004
+ 13  WAG+F         15812.388    138 31900.777    32456.777    32361.357
+ 14  WAG+F+I       15610.352    139 31498.703    32071.056    31962.621
+ 15  WAG+F+G4      15163.448    139 30604.896    31177.249    31068.814
+ 16  WAG+F+I+G4    15144.416    140 30568.833    31158.086    31036.088
+ 17  JTT           16022.807    119 32283.613    32608.159    32680.780
+ 18  JTT+I         15777.205    120 31794.409    32128.202    32194.914
+ 19  JTT+G4        15246.179    120 30732.358    31066.151    31132.863
+ 20  JTT+I+G4      15222.168    121 30686.337    31029.639    31090.179
+ 21  JTT+F         16007.649    138 32291.297    32847.297    32751.878
+ 22  JTT+F+I       15789.467    139 31856.933    32429.286    32320.851
+ 23  JTT+F+G4      15218.732    139 30715.464    31287.817    31179.382
+ 24  JTT+F+I+G4    15200.948    140 30681.896    31271.150    31149.152
+Akaike Information Criterion:           LG+I+G4
+Corrected Akaike Information Criterion: LG+I+G4
+Bayesian Information Criterion:         LG+I+G4
+Best-fit model: LG+I+G4 chosen according to BIC
+
+All model information printed to FAreductase.00.lt.iqt.model.gz
+CPU time for ModelFinder: 11.358 seconds (0h:0m:11s)
+Wall-clock time for ModelFinder: 1.153 seconds (0h:0m:1s)
+Generating 1000 samples for ultrafast bootstrap (seed: 605874)...
+
+NOTE: 9 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.811
+Init pinv, alpha: 0.010, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.812
+Init pinv, alpha: 0.019, 1.000 / Estimate: 0.070, 1.461 / LogL: -14954.819
+Init pinv, alpha: 0.029, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.814
+Init pinv, alpha: 0.038, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.812
+Init pinv, alpha: 0.048, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.811
+Init pinv, alpha: 0.058, 1.000 / Estimate: 0.070, 1.462 / LogL: -14954.811
+Init pinv, alpha: 0.067, 1.000 / Estimate: 0.070, 1.464 / LogL: -14954.810
+Init pinv, alpha: 0.077, 1.000 / Estimate: 0.070, 1.464 / LogL: -14954.811
+Init pinv, alpha: 0.087, 1.000 / Estimate: 0.070, 1.463 / LogL: -14954.810
+Optimal pinv,alpha: 0.070, 1.464 / LogL: -14954.810
+
+Parameters optimization took 1.042 sec
+Computing ML distances based on estimated model parameters... 1.204 sec
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing BIONJ tree...
+0.002 seconds
+Log-likelihood of BIONJ tree: -14953.727
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.885 second
+Computing log-likelihood of 98 initial trees ... 1.585 seconds
+Current best score: -14935.019
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -14915.105
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 3: -14903.493
+Iteration 10 / LogL: -14905.255 / Time: 0h:0m:5s
+Iteration 20 / LogL: -14903.751 / Time: 0h:0m:7s
+Finish initializing candidate tree set (11)
+Current best tree score: -14903.493 / CPU time: 5.925
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 25: -14900.754
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 26: -14900.696
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 30: -14900.178
+Iteration 30 / LogL: -14900.178 / Time: 0h:0m:9s (0h:0m:31s left)
+Iteration 40 / LogL: -14900.737 / Time: 0h:0m:10s (0h:0m:25s left)
+Iteration 50 / LogL: -14900.727 / Time: 0h:0m:12s (0h:0m:20s left)
+Log-likelihood cutoff on original alignment: -14952.379
+Iteration 60 / LogL: -14901.979 / Time: 0h:0m:14s (0h:0m:17s left)
+Iteration 70 / LogL: -14900.761 / Time: 0h:0m:16s (0h:0m:14s left)
+Iteration 80 / LogL: -14900.762 / Time: 0h:0m:18s (0h:0m:11s left)
+Iteration 90 / LogL: -14900.200 / Time: 0h:0m:20s (0h:0m:9s left)
+Iteration 100 / LogL: -14900.802 / Time: 0h:0m:22s (0h:0m:6s left)
+Log-likelihood cutoff on original alignment: -14952.379
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+Iteration 110 / LogL: -14909.411 / Time: 0h:0m:24s (0h:0m:20s left)
+Iteration 120 / LogL: -14901.467 / Time: 0h:0m:26s (0h:0m:17s left)
+UPDATE BEST LOG-LIKELIHOOD: -14900.174
+Iteration 130 / LogL: -14901.374 / Time: 0h:0m:28s (0h:0m:15s left)
+TREE SEARCH COMPLETED AFTER 131 ITERATIONS / Time: 0h:0m:28s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -14900.174
+Optimal log-likelihood: -14900.170
+Proportion of invariable sites: 0.070
+Gamma shape alpha: 1.444
+Parameters optimization took 1 rounds (0.022 sec)
+BEST SCORE FOUND : -14900.170
+Creating bootstrap support values...
+Split supports printed to NEXUS file FAreductase.00.lt.iqt.splits.nex
+Total tree length: 23.161
+
+Total number of iterations: 131
+CPU time used for tree search: 266.308 sec (0h:4m:26s)
+Wall-clock time used for tree search: 27.492 sec (0h:0m:27s)
+Total CPU time used: 280.124 sec (0h:4m:40s)
+Total wall-clock time used: 28.886 sec (0h:0m:28s)
+
+Computing bootstrap consensus tree...
+Reading input file FAreductase.00.lt.iqt.splits.nex...
+61 taxa and 317 splits.
+Consensus tree written to FAreductase.00.lt.iqt.contree
+Reading input trees file FAreductase.00.lt.iqt.contree
+Log-likelihood of consensus tree: -14900.179
+
+Analysis results written to: 
+  IQ-TREE report:                FAreductase.00.lt.iqt.iqtree
+  Maximum-likelihood tree:       FAreductase.00.lt.iqt.treefile
+  Likelihood distances:          FAreductase.00.lt.iqt.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          FAreductase.00.lt.iqt.splits.nex
+  Consensus tree:                FAreductase.00.lt.iqt.contree
+  Screen log file:               FAreductase.00.lt.iqt.log
+
+Date and Time: Fri Nov 22 09:57:19 2019

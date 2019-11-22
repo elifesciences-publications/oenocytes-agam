@@ -1,0 +1,153 @@
+IQ-TREE multicore version 1.6.10 for Linux 64-bit built Feb 19 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    monolit (AVX512, FMA3, 62 GB RAM)
+Command: iqtree -s FAsynthase.00.lt.fasta -m TEST -mset LG,WAG,JTT -nt 10 -bb 1000 -pre FAsynthase.00.lt.iqt
+Seed:    807160 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Nov 22 09:57:19 2019
+Kernel:  AVX+FMA - 10 threads (12 CPU cores detected)
+
+Reading alignment file FAsynthase.00.lt.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 16 sequences with 237 columns, 225 distinct patterns
+195 parsimony-informative, 18 singleton sites, 24 constant sites
+                             Gap/Ambiguity  Composition  p-value
+   1  Dromel_FBtr0335386_18-257      0.00%    passed     99.91%
+   2  Dromel_FBtr0335387_140-379     0.00%    passed     97.67%
+   3  Anogam_AGAP009176-RA_42-278    0.84%    passed     99.20%
+   4  Aedaeg_AAEL001194-RA_31-269    0.42%    passed     91.67%
+   5  Dromel_FBtr0305959_20-256      0.00%    passed     84.39%
+   6  Anogam_AGAP001899-RA_21-257    0.00%    passed     99.60%
+   7  Aedaeg_AAEL008160-RA_21-258    0.00%    passed     99.40%
+   8  Aedaeg_AAEL002228-RA_13-251    0.42%    passed     99.31%
+   9  Aedaeg_AAEL022506-RA_13-250    0.00%    passed     98.63%
+  10  Aedaeg_AAEL025219-RA_13-250    0.00%    passed     96.14%
+  11  Aedaeg_AAEL002237-RA_14-250    0.00%    passed     99.78%
+  12  Anogam_AGAP028049-RA_30-268    0.00%    passed     77.02%
+  13  Anogam_AGAP008468-RA_15-263    0.00%    passed     58.41%
+  14  Dromel_FBtr0078709_24-271      2.95%    passed     29.02%
+  15  Anogam_AGAP002809-RA_39-287    2.53%    passed     64.65%
+  16  Aedaeg_AAEL002113-RA_30-278    2.53%    passed     60.98%
+****  TOTAL                          0.61%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.001 seconds
+NOTE: ModelFinder requires 3 MB RAM!
+ModelFinder will test 24 protein models (sample size: 237) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            4700.757     29  9459.515     9467.921     9560.089
+  2  LG+I          4671.365     30  9402.731     9411.760     9506.773
+  3  LG+G4         4630.180     30  9320.361     9329.390     9424.402
+  4  LG+I+G4       4628.789     31  9319.577     9329.255     9427.087
+  5  LG+F          4681.481     48  9458.963     9483.984     9625.430
+  6  LG+F+I        4650.420     49  9398.840     9425.044     9568.775
+  7  LG+F+G4       4610.859     49  9319.718     9345.922     9489.653
+  8  LG+F+I+G4     4609.153     50  9318.306     9345.725     9491.709
+  9  WAG           4721.601     29  9501.201     9509.607     9601.775
+ 10  WAG+I         4696.712     30  9453.425     9462.454     9557.467
+ 11  WAG+G4        4661.290     30  9382.580     9391.609     9486.622
+ 12  WAG+I+G4      4660.169     31  9382.339     9392.017     9489.849
+ 13  WAG+F         4691.835     48  9479.669     9504.691     9646.136
+ 14  WAG+F+I       4666.635     49  9431.270     9457.473     9601.205
+ 15  WAG+F+G4      4633.625     49  9365.249     9391.452     9535.184
+ 16  WAG+F+I+G4    4632.323     50  9364.646     9392.066     9538.049
+ 17  JTT           4771.526     29  9601.052     9609.458     9701.626
+ 18  JTT+I         4737.119     30  9534.237     9543.266     9638.279
+ 19  JTT+G4        4692.829     30  9445.659     9454.688     9549.701
+ 20  JTT+I+G4      4691.188     31  9444.377     9454.055     9551.887
+ 21  JTT+F         4755.703     48  9607.406     9632.427     9773.873
+ 22  JTT+F+I       4720.064     49  9538.128     9564.331     9708.063
+ 23  JTT+F+G4      4679.100     49  9456.201     9482.404     9626.136
+ 24  JTT+F+I+G4    4677.146     50  9454.292     9481.712     9627.695
+Akaike Information Criterion:           LG+F+I+G4
+Corrected Akaike Information Criterion: LG+I+G4
+Bayesian Information Criterion:         LG+G4
+Best-fit model: LG+G4 chosen according to BIC
+
+All model information printed to FAsynthase.00.lt.iqt.model.gz
+CPU time for ModelFinder: 2.109 seconds (0h:0m:2s)
+Wall-clock time for ModelFinder: 0.213 seconds (0h:0m:0s)
+Generating 1000 samples for ultrafast bootstrap (seed: 807160)...
+
+NOTE: 3 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -4636.917
+2. Current log-likelihood: -4630.887
+3. Current log-likelihood: -4630.195
+Optimal log-likelihood: -4630.179
+Gamma shape alpha: 1.585
+Parameters optimization took 3 rounds (0.023 sec)
+Computing ML distances based on estimated model parameters... 0.083 sec
+Computing BIONJ tree...
+0.000 seconds
+Log-likelihood of BIONJ tree: -4624.185
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.103 second
+Computing log-likelihood of 98 initial trees ... 0.383 seconds
+Current best score: -4624.185
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -4623.984
+Iteration 10 / LogL: -4624.863 / Time: 0h:0m:0s
+Iteration 20 / LogL: -4624.475 / Time: 0h:0m:1s
+Finish initializing candidate tree set (3)
+Current best tree score: -4623.984 / CPU time: 1.036
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -4626.240 / Time: 0h:0m:1s (0h:0m:3s left)
+Iteration 40 / LogL: -4625.318 / Time: 0h:0m:1s (0h:0m:2s left)
+Iteration 50 / LogL: -4626.089 / Time: 0h:0m:2s (0h:0m:2s left)
+Log-likelihood cutoff on original alignment: -4656.793
+Iteration 60 / LogL: -4628.532 / Time: 0h:0m:2s (0h:0m:1s left)
+Iteration 70 / LogL: -4628.438 / Time: 0h:0m:3s (0h:0m:1s left)
+Iteration 80 / LogL: -4624.099 / Time: 0h:0m:3s (0h:0m:0s left)
+Iteration 90 / LogL: -4624.938 / Time: 0h:0m:3s (0h:0m:0s left)
+Iteration 100 / LogL: -4634.202 / Time: 0h:0m:4s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -4656.793
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:4s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -4623.984
+Optimal log-likelihood: -4623.984
+Gamma shape alpha: 1.561
+Parameters optimization took 1 rounds (0.005 sec)
+BEST SCORE FOUND : -4623.984
+Creating bootstrap support values...
+Split supports printed to NEXUS file FAsynthase.00.lt.iqt.splits.nex
+Total tree length: 6.688
+
+Total number of iterations: 102
+CPU time used for tree search: 44.020 sec (0h:0m:44s)
+Wall-clock time used for tree search: 4.433 sec (0h:0m:4s)
+Total CPU time used: 44.879 sec (0h:0m:44s)
+Total wall-clock time used: 4.521 sec (0h:0m:4s)
+
+Computing bootstrap consensus tree...
+Reading input file FAsynthase.00.lt.iqt.splits.nex...
+16 taxa and 72 splits.
+Consensus tree written to FAsynthase.00.lt.iqt.contree
+Reading input trees file FAsynthase.00.lt.iqt.contree
+Log-likelihood of consensus tree: -4623.985
+
+Analysis results written to: 
+  IQ-TREE report:                FAsynthase.00.lt.iqt.iqtree
+  Maximum-likelihood tree:       FAsynthase.00.lt.iqt.treefile
+  Likelihood distances:          FAsynthase.00.lt.iqt.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          FAsynthase.00.lt.iqt.splits.nex
+  Consensus tree:                FAsynthase.00.lt.iqt.contree
+  Screen log file:               FAsynthase.00.lt.iqt.log
+
+Date and Time: Fri Nov 22 09:57:24 2019
