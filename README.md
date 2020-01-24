@@ -1,14 +1,14 @@
 # Transcriptome of *Anopheles gambiae* oenocytes
 
-Code and data to reproduce the analyses of differential gene expression from **Isolation and transcriptomic analysis of An. gambiae oenocytes enable the delineation of the cuticular hydrocarbon biosynthetic pathway** (Grigoraki et al. 2019).
+Code and data to reproduce the analyses of differential gene expression from **Isolation and transcriptomic analysis of *An. gambiae* oenocytes enable the delineation of the cuticular hydrocarbon biosynthetic pathway** (Grigoraki et al. 2019).
 
 ## Quick how-to
 
 To re-do the main analyses of the paper, just clone this repository and run the following `R` script:
 
 ```bash
-git clone git@github.com:xgrau/oenocytes-agam.git # or download it
-Rscript s01_differential_expression_deseq2.R            # or open the script and tinker with it
+git clone git@github.com:xgrau/oenocytes-agam.git    # or download it
+Rscript s01_differential_expression_deseq2.R         # or open the script and tinker with it
 ```
 
 The script will:
