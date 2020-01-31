@@ -4,170 +4,198 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    monolit (AVX512, FMA3, 62 GB RAM)
 Command: iqtree -s FAdesaturase.00.lt.fasta -m TEST -mset LG,WAG,JTT -nt 10 -bb 1000 -pre FAdesaturase.00.lt.iqt
-Seed:    706110 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Fri Nov 22 09:55:40 2019
+Seed:    907968 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Jan 31 16:01:57 2020
 Kernel:  AVX+FMA - 10 threads (12 CPU cores detected)
 
 Reading alignment file FAdesaturase.00.lt.fasta ... Fasta format detected
 Alignment most likely contains protein sequences
-Alignment has 30 sequences with 205 columns, 203 distinct patterns
-183 parsimony-informative, 12 singleton sites, 10 constant sites
+Alignment has 31 sequences with 157 columns, 155 distinct patterns
+145 parsimony-informative, 3 singleton sites, 9 constant sites
                               Gap/Ambiguity  Composition  p-value
-   1  Anogam_AGAP003050-RA            8.78%    passed     73.97%
-   2  Dromel_FBtr0085572_49-235      23.90%    passed     16.98%
-   3  Dromel_FBtr0076196_68-278      13.66%    passed     98.64%
-   4  Dromel_FBtr0082592_82-284      14.15%    passed     94.53%
-   5  Dromel_FBtr0082630_97-305      13.66%    passed     98.56%
-   6  Anogam_AGAP001713-RD_75-277    14.15%    passed     94.74%
-   7  Anogam_AGAP012920-RA_75-157    60.00%    passed     94.93%
-   8  Aedaeg_AAEL003203-RE_88-291    13.66%    passed     98.89%
-   9  Anogam_AGAP003418-RA_100-308   13.66%    passed     99.83%
-  10  Aedaeg_AAEL026878-RC_112-326   13.66%    passed     99.48%
-  11  Dromel_FBtr0085571_133-335     14.15%    passed     99.48%
-  12  Anogam_AGAP003051-RA_94-296    14.15%    passed     99.18%
-  13  Aedaeg_AAEL003645-RA_104-306   14.15%    passed     99.76%
-  14  Dromel_FBtr0346162_143-343     15.12%    passed     97.24%
-  15  Anogam_AGAP013071-RA_119-324   13.66%    passed     99.68%
-  16  Aedaeg_AAEL004573-RB_118-323   13.66%    passed     99.69%
-  17  Aedaeg_AAEL003622-RC_122-325   13.66%    passed     96.76%
-  18  Anogam_AGAP004572-RB_140-341   14.63%    passed     97.32%
-  19  Aedaeg_AAEL018141-RB_141-339   16.10%    passed     97.81%
-  20  Dromel_FBtr0082737_96-297      14.63%    passed     82.11%
-  21  Dromel_FBtr0079179_67-286      13.66%    passed     23.51%
-  22  Anogam_AGAP012111-RA_82-206    56.10%    passed     62.58%
-  23  Aedaeg_AAEL013047-RB_68-285    13.66%    passed     38.73%
-  24  Anogam_AGAP011402-RA_66-285    13.66%    passed     61.68%
-  25  Dromel_FBtr0331931_162-404     11.22%    passed     95.60%
-  26  Dromel_FBtr0331619_173-410     13.66%    passed     85.39%
-  27  Anogam_AGAP010149-RA_177-418   10.73%    passed     93.19%
-  28  Anogam_AGAP010150-RA_159-405   10.24%    passed     96.26%
-  29  Aedaeg_AAEL004278-RA_165-411   10.24%    passed     96.79%
-  30  Aedaeg_AAEL005737-RB_185-435    9.76%    passed     67.01%
+   1  Anogam_AGAP003050-RA            3.82%    passed     63.24%
+   2  Aedaeg_AAEL003611-RA            3.82%    passed     54.84%
+   3  Dromel_FBtr0085572_49-235      14.01%    passed     20.88%
+   4  Dromel_FBtr0076196_68-278       2.55%    passed     99.69%
+   5  Dromel_FBtr0082592_82-284       2.55%    passed     99.16%
+   6  Dromel_FBtr0082630_97-305       2.55%    passed     98.99%
+   7  Anogam_AGAP001713-RD_75-277     2.55%    passed     99.36%
+   8  Anogam_AGAP012920-RA_75-157    56.05%    passed     97.72%
+   9  Aedaeg_AAEL003203-RE_88-291     2.55%    passed     99.98%
+  10  Anogam_AGAP003418-RA_100-308    2.55%    passed     99.93%
+  11  Aedaeg_AAEL026878-RC_112-326    2.55%    passed     99.94%
+  12  Dromel_FBtr0085571_133-335      2.55%    passed     99.49%
+  13  Anogam_AGAP003051-RA_94-296     2.55%    passed     99.99%
+  14  Aedaeg_AAEL003645-RA_104-306    2.55%    passed     99.81%
+  15  Dromel_FBtr0346162_143-343      2.55%    passed     99.47%
+  16  Anogam_AGAP013071-RA_119-324    2.55%    passed     99.96%
+  17  Aedaeg_AAEL004573-RB_118-323    2.55%    passed     99.96%
+  18  Aedaeg_AAEL003622-RC_122-325    2.55%    passed     98.52%
+  19  Anogam_AGAP004572-RB_140-341    2.55%    passed     96.51%
+  20  Aedaeg_AAEL018141-RB_141-339    2.55%    passed     93.73%
+  21  Dromel_FBtr0082737_96-297       2.55%    passed     96.13%
+  22  Dromel_FBtr0079179_67-286      11.46%    passed     36.85%
+  23  Anogam_AGAP012111-RA_82-206    59.87%    passed     60.67%
+  24  Aedaeg_AAEL013047-RB_68-285    11.46%    passed     69.38%
+  25  Anogam_AGAP011402-RA_66-285    11.46%    passed     77.88%
+  26  Dromel_FBtr0331931_162-404      3.18%    passed     89.03%
+  27  Dromel_FBtr0331619_173-410      5.10%    passed     97.01%
+  28  Anogam_AGAP010149-RA_177-418    2.55%    passed     89.39%
+  29  Anogam_AGAP010150-RA_159-405    2.55%    passed     97.28%
+  30  Aedaeg_AAEL004278-RA_165-411    2.55%    passed     91.71%
+  31  Aedaeg_AAEL005737-RB_185-435    2.55%    passed     92.12%
 WARNING: 2 sequences contain more than 50% gaps/ambiguity
-****  TOTAL                          16.54%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+****  TOTAL                           7.54%  0 sequences failed composition chi2 test (p-value<5%; df=19)
 
 
-Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.006 seconds
-NOTE: ModelFinder requires 5 MB RAM!
-ModelFinder will test 24 protein models (sample size: 205) ...
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.005 seconds
+NOTE: ModelFinder requires 4 MB RAM!
+ModelFinder will test 24 protein models (sample size: 157) ...
  No. Model         -LnL         df  AIC          AICc         BIC
-  1  LG            6367.091     57  12848.182    12893.162    13037.594
-  2  LG+I          6325.839     58  12767.678    12814.555    12960.413
-  3  LG+G4         6269.619     58  12655.239    12702.115    12847.973
-  4  LG+I+G4       6261.239     59  12640.479    12689.306    12836.536
-  5  LG+F          6313.217     76  12778.434    12869.872    13030.983
-  6  LG+F+I        6282.827     77  12719.654    12814.237    12975.526
-  7  LG+F+G4       6230.929     77  12615.858    12710.441    12871.730
-  8  LG+F+I+G4     6224.681     78  12605.362    12703.171    12864.557
-  9  WAG           6439.492     57  12992.984    13037.964    13182.396
- 10  WAG+I         6402.773     58  12921.547    12968.424    13114.282
- 11  WAG+G4        6348.882     58  12813.764    12860.640    13006.498
- 12  WAG+I+G4      6341.801     59  12801.602    12850.430    12997.660
- 13  WAG+F         6361.280     76  12874.561    12965.998    13127.110
- 14  WAG+F+I       6332.045     77  12818.089    12912.672    13073.961
- 15  WAG+F+G4      6284.366     77  12722.731    12817.314    12978.603
- 16  WAG+F+I+G4    6278.628     78  12713.256    12811.065    12972.451
- 17  JTT           6491.550     57  13097.100    13142.080    13286.512
- 18  JTT+I         6443.586     58  13003.172    13050.048    13195.906
- 19  JTT+G4        6375.139     58  12866.278    12913.155    13059.013
- 20  JTT+I+G4      6366.495     59  12850.990    12899.818    13047.048
- 21  JTT+F         6415.623     76  12983.245    13074.683    13235.794
- 22  JTT+F+I       6378.455     77  12910.910    13005.492    13166.781
- 23  JTT+F+G4      6318.010     77  12790.020    12884.603    13045.892
- 24  JTT+F+I+G4    6311.069     78  12778.137    12875.947    13037.332
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  1  LG            5404.762     59  10927.525    11000.515    11107.843
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  2  LG+I          5364.607     60  10849.214    10925.464    11032.588
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  3  LG+G4         5324.818     60  10769.637    10845.887    10953.012
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  4  LG+I+G4       5315.447     61  10752.895    10832.516    10939.326
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  5  LG+F          5347.410     78  10850.820    11008.820    11089.208
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  6  LG+F+I        5318.194     79  10794.389    10958.545    11035.832
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  7  LG+F+G4       5283.015     79  10724.031    10888.186    10965.474
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  8  LG+F+I+G4     5275.739     80  10711.477    10882.004    10955.977
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  9  WAG           5465.998     59  11049.995    11122.985    11230.314
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 10  WAG+I         5431.169     60  10982.338    11058.588    11165.713
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 11  WAG+G4        5392.662     60  10905.323    10981.573    11088.698
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 12  WAG+I+G4      5384.553     61  10891.106    10970.727    11077.537
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 13  WAG+F         5385.747     78  10927.495    11085.495    11165.882
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 14  WAG+F+I       5358.428     79  10874.856    11039.012    11116.299
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 15  WAG+F+G4      5326.851     79  10811.703    10975.859    11053.146
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 16  WAG+F+I+G4    5320.046     80  10800.091    10970.618    11044.591
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 17  JTT           5507.405     59  11132.811    11205.801    11313.129
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 18  JTT+I         5462.501     60  11045.002    11121.252    11228.377
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 19  JTT+G4        5414.864     60  10949.728    11025.978    11133.103
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 20  JTT+I+G4      5405.240     61  10932.479    11012.100    11118.910
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 21  JTT+F         5426.059     78  11008.117    11166.117    11246.505
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 22  JTT+F+I       5392.079     79  10942.158    11106.314    11183.601
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 23  JTT+F+G4      5353.150     79  10864.300    11028.455    11105.743
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 24  JTT+F+I+G4    5345.066     80  10850.133    11020.659    11094.633
 Akaike Information Criterion:           LG+F+I+G4
 Corrected Akaike Information Criterion: LG+I+G4
 Bayesian Information Criterion:         LG+I+G4
 Best-fit model: LG+I+G4 chosen according to BIC
 
 All model information printed to FAdesaturase.00.lt.iqt.model.gz
-CPU time for ModelFinder: 4.989 seconds (0h:0m:4s)
-Wall-clock time for ModelFinder: 0.511 seconds (0h:0m:0s)
-Generating 1000 samples for ultrafast bootstrap (seed: 706110)...
+CPU time for ModelFinder: 4.408 seconds (0h:0m:4s)
+Wall-clock time for ModelFinder: 0.450 seconds (0h:0m:0s)
+Generating 1000 samples for ultrafast bootstrap (seed: 907968)...
 
-NOTE: 5 MB RAM (0 GB) is required!
+NOTE: 4 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
 Estimate model parameters (epsilon = 0.100)
 Thoroughly optimizing +I+G parameters from 10 start values...
-Init pinv, alpha: 0.000, 1.000 / Estimate: 0.033, 2.647 / LogL: -6261.238
-Init pinv, alpha: 0.005, 1.000 / Estimate: 0.032, 2.631 / LogL: -6261.243
-Init pinv, alpha: 0.011, 1.000 / Estimate: 0.032, 2.639 / LogL: -6261.240
-Init pinv, alpha: 0.016, 1.000 / Estimate: 0.033, 2.642 / LogL: -6261.240
-Init pinv, alpha: 0.022, 1.000 / Estimate: 0.033, 2.644 / LogL: -6261.240
-Init pinv, alpha: 0.027, 1.000 / Estimate: 0.033, 2.645 / LogL: -6261.240
-Init pinv, alpha: 0.033, 1.000 / Estimate: 0.033, 2.646 / LogL: -6261.240
-Init pinv, alpha: 0.038, 1.000 / Estimate: 0.033, 2.646 / LogL: -6261.241
-Init pinv, alpha: 0.043, 1.000 / Estimate: 0.033, 2.646 / LogL: -6261.241
-Init pinv, alpha: 0.049, 1.000 / Estimate: 0.033, 2.647 / LogL: -6261.241
-Optimal pinv,alpha: 0.033, 2.647 / LogL: -6261.238
+Init pinv, alpha: 0.000, 1.000 / Estimate: 0.041, 2.929 / LogL: -5315.449
+Init pinv, alpha: 0.006, 1.000 / Estimate: 0.042, 2.928 / LogL: -5315.450
+Init pinv, alpha: 0.013, 1.000 / Estimate: 0.042, 2.934 / LogL: -5315.449
+Init pinv, alpha: 0.019, 1.000 / Estimate: 0.042, 2.936 / LogL: -5315.448
+Init pinv, alpha: 0.025, 1.000 / Estimate: 0.042, 2.937 / LogL: -5315.448
+Init pinv, alpha: 0.032, 1.000 / Estimate: 0.042, 2.938 / LogL: -5315.448
+Init pinv, alpha: 0.038, 1.000 / Estimate: 0.042, 2.938 / LogL: -5315.448
+Init pinv, alpha: 0.045, 1.000 / Estimate: 0.042, 2.939 / LogL: -5315.448
+Init pinv, alpha: 0.051, 1.000 / Estimate: 0.042, 2.939 / LogL: -5315.448
+Init pinv, alpha: 0.057, 1.000 / Estimate: 0.042, 2.939 / LogL: -5315.448
+Optimal pinv,alpha: 0.042, 2.938 / LogL: -5315.448
 
-Parameters optimization took 0.596 sec
-Computing ML distances based on estimated model parameters... 0.294 sec
+Parameters optimization took 0.428 sec
+Computing ML distances based on estimated model parameters... 0.304 sec
 WARNING: Some pairwise ML distances are too long (saturated)
 Computing BIONJ tree...
 0.000 seconds
-Log-likelihood of BIONJ tree: -6259.986
+Log-likelihood of BIONJ tree: -5291.640
 --------------------------------------------------------------------
 |             INITIALIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
-Generating 98 parsimony trees... 0.312 second
-Computing log-likelihood of 98 initial trees ... 0.728 seconds
-Current best score: -6259.986
+Generating 98 parsimony trees... 0.361 second
+Computing log-likelihood of 98 initial trees ... 0.685 seconds
+Current best score: -5291.640
 
 Do NNI search on 20 best initial trees
 Estimate model parameters (epsilon = 0.100)
-BETTER TREE FOUND at iteration 1: -6251.648
-Iteration 10 / LogL: -6253.961 / Time: 0h:0m:2s
-Iteration 20 / LogL: -6251.970 / Time: 0h:0m:3s
-Finish initializing candidate tree set (5)
-Current best tree score: -6251.648 / CPU time: 2.946
+BETTER TREE FOUND at iteration 1: -5290.808
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 2: -5288.749
+Iteration 10 / LogL: -5291.155 / Time: 0h:0m:2s
+Iteration 20 / LogL: -5292.305 / Time: 0h:0m:3s
+Finish initializing candidate tree set (7)
+Current best tree score: -5288.749 / CPU time: 2.709
 Number of iterations: 20
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
 Estimate model parameters (epsilon = 0.100)
-BETTER TREE FOUND at iteration 25: -6251.313
-Iteration 30 / LogL: -6257.024 / Time: 0h:0m:4s (0h:0m:16s left)
-Iteration 40 / LogL: -6251.794 / Time: 0h:0m:6s (0h:0m:13s left)
-Iteration 50 / LogL: -6251.327 / Time: 0h:0m:7s (0h:0m:11s left)
-Log-likelihood cutoff on original alignment: -6289.610
-Iteration 60 / LogL: -6251.953 / Time: 0h:0m:8s (0h:0m:9s left)
-Iteration 70 / LogL: -6251.324 / Time: 0h:0m:9s (0h:0m:7s left)
-Iteration 80 / LogL: -6251.319 / Time: 0h:0m:11s (0h:0m:6s left)
-Iteration 90 / LogL: -6251.541 / Time: 0h:0m:12s (0h:0m:4s left)
-Iteration 100 / LogL: -6251.317 / Time: 0h:0m:13s (0h:0m:3s left)
-Log-likelihood cutoff on original alignment: -6289.610
-NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.995
-Iteration 110 / LogL: -6252.016 / Time: 0h:0m:14s (0h:0m:12s left)
-Iteration 120 / LogL: -6251.816 / Time: 0h:0m:16s (0h:0m:10s left)
-TREE SEARCH COMPLETED AFTER 126 ITERATIONS / Time: 0h:0m:16s
+BETTER TREE FOUND at iteration 23: -5288.429
+Iteration 30 / LogL: -5289.349 / Time: 0h:0m:4s (0h:0m:13s left)
+Iteration 40 / LogL: -5288.611 / Time: 0h:0m:5s (0h:0m:11s left)
+Iteration 50 / LogL: -5289.430 / Time: 0h:0m:6s (0h:0m:9s left)
+Log-likelihood cutoff on original alignment: -5321.320
+Iteration 60 / LogL: -5293.142 / Time: 0h:0m:7s (0h:0m:7s left)
+Iteration 70 / LogL: -5288.630 / Time: 0h:0m:8s (0h:0m:6s left)
+Iteration 80 / LogL: -5289.769 / Time: 0h:0m:9s (0h:0m:5s left)
+Iteration 90 / LogL: -5288.577 / Time: 0h:0m:10s (0h:0m:3s left)
+Iteration 100 / LogL: -5288.481 / Time: 0h:0m:11s (0h:0m:2s left)
+Log-likelihood cutoff on original alignment: -5321.276
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.998
+Iteration 110 / LogL: -5288.937 / Time: 0h:0m:12s (0h:0m:10s left)
+Iteration 120 / LogL: -5289.053 / Time: 0h:0m:13s (0h:0m:8s left)
+TREE SEARCH COMPLETED AFTER 124 ITERATIONS / Time: 0h:0m:13s
 
 --------------------------------------------------------------------
 |                    FINALIZING TREE SEARCH                        |
 --------------------------------------------------------------------
 Performs final model parameters optimization
 Estimate model parameters (epsilon = 0.010)
-1. Initial log-likelihood: -6251.313
-Optimal log-likelihood: -6251.313
-Proportion of invariable sites: 0.033
-Gamma shape alpha: 2.553
-Parameters optimization took 1 rounds (0.009 sec)
-BEST SCORE FOUND : -6251.313
+1. Initial log-likelihood: -5288.429
+Optimal log-likelihood: -5288.414
+Proportion of invariable sites: 0.042
+Gamma shape alpha: 2.818
+Parameters optimization took 1 rounds (0.008 sec)
+BEST SCORE FOUND : -5288.414
 Creating bootstrap support values...
 Split supports printed to NEXUS file FAdesaturase.00.lt.iqt.splits.nex
-Total tree length: 14.247
+Total tree length: 13.597
 
-Total number of iterations: 126
-CPU time used for tree search: 159.824 sec (0h:2m:39s)
-Wall-clock time used for tree search: 16.172 sec (0h:0m:16s)
-Total CPU time used: 167.030 sec (0h:2m:47s)
-Total wall-clock time used: 16.915 sec (0h:0m:16s)
+Total number of iterations: 124
+CPU time used for tree search: 130.912 sec (0h:2m:10s)
+Wall-clock time used for tree search: 13.280 sec (0h:0m:13s)
+Total CPU time used: 136.681 sec (0h:2m:16s)
+Total wall-clock time used: 13.858 sec (0h:0m:13s)
 
 Computing bootstrap consensus tree...
 Reading input file FAdesaturase.00.lt.iqt.splits.nex...
-30 taxa and 207 splits.
+31 taxa and 229 splits.
 Consensus tree written to FAdesaturase.00.lt.iqt.contree
 Reading input trees file FAdesaturase.00.lt.iqt.contree
-Log-likelihood of consensus tree: -6251.332
+Log-likelihood of consensus tree: -5289.008
 
 Analysis results written to: 
   IQ-TREE report:                FAdesaturase.00.lt.iqt.iqtree
@@ -179,4 +207,4 @@ Ultrafast bootstrap approximation results written to:
   Consensus tree:                FAdesaturase.00.lt.iqt.contree
   Screen log file:               FAdesaturase.00.lt.iqt.log
 
-Date and Time: Fri Nov 22 09:55:58 2019
+Date and Time: Fri Jan 31 16:02:12 2020

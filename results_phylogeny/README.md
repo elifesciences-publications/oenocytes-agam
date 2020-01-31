@@ -4,7 +4,7 @@
 
 For each gene family, we define initial homologs from Pfam domain annotations, and retrieve the sequence for each individual domain:
 
-* FAdesaturase: `FA_desaturase` (and we manually add `Anogam_AGAP003050-RA`) ALSO ADD: `AEEL003611`
+* FAdesaturase: `FA_desaturase` (and we manually add `Anogam_AGAP003050-RA` and `Aedaeg_AEEL003611`)
 * FAelongase: `ELO`
 * FAreductase: `NAD_binding_4`
 * FAsynthase: `ketoacyl-synt`
