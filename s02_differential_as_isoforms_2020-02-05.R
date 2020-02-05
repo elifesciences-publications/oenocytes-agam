@@ -23,6 +23,7 @@ grupnoms    = c("group","sex","tissue")                 # group names (2nd, 3rd,
 annottab    = "data_genome/Anogam_long.pep_Pfamscan.seqs"               # pfam annots (requires .blat file too)
 gomapfile   = "data_genome/Anogam_long.pep_eggnog_diamond.emapper.annotations.GO" # gomap (with transcripts)
 tx2genedict = "data_genome/Anogam_tx2ge.csv"                         # transcript-to-gene mappings
+genename_fn = "data_genome/Anogam_genes.description.csv"             # gene names
 
 # input variables
 pthr = 0.05 # pval threshold for suppa comparisons
@@ -34,31 +35,6 @@ source("helper_scripts/pval_from_CDF_8nov18.R")
 source("helper_scripts/volcano_plot.R")
 source("helper_scripts/geneSetAnalysis.R")
 col.fun = colorRampPalette(interpolate="l",c("aliceblue","deepskyblue","dodgerblue4"))
-
-# plotting function
-topdiffgenes = function(table,plotname,ntopgenes,dpsi_pos,dpsi_neg) {
-  table = head(table,ntopgenes)
-  table = droplevels(table)
-  # this block simplifies VEP effects for clearer plotting
-  csi = c("inframe_deletion","inframe_insertion","frameshift_variant","stop_gained","stop_lost")
-  table = table[grepl(pattern = paste(csi,collapse="|"), x = table$event_consequences),]
-  csj = unique(unlist(base::strsplit(paste(table$event_consequences,sep=" "),split = ",")))
-  csj = subset(csj, !(csj %in% csi))
-  csj = c(csj,",")
-  table$event_consequences = gsub(pattern = paste(csj,collapse="|"), replacement = "",x= table$event_consequences)
-  table$event_consequences = as.factor(paste(table$event_consequences," dom",table$hasdomain,sep=""))
-  # colors  & spacing
-  virc  = rainbow(nlevels(table$event_consequences),v = 0.8)
-  par(mar=c(5,20,4,2)+0.1)
-  # plot
-  bp = barplot(
-    height = table$dPSI,names.arg = table$event_id,las=2,col=virc[table$event_consequences],border=NA,
-    cex.names=0.6,cex.axis=0.7,cex.sub=0.7,cex.lab=0.7,main = paste(plotname),sub  = paste("dPSI<0:",dpsi_neg,"| dPSI>0:",dpsi_pos),
-    xlim = c(-1,1),horiz = T,xlab = "dPSI")
-  legend("topleft", legend = levels(table$event_consequences),fill=virc,cex=0.6,border=NA)
-  text(bp,x=1, pos=2,cex=0.6,col="red",labels = paste("p=",formatC(table$pval,format="e",digits=2),sep=""))
-}
-
 
 
 #### Load data ####
@@ -79,6 +55,9 @@ pannu = pannu[!duplicated(pannu), ]
 gomap = readMappings(gomapfile)
 gomap_gene_names = sapply(base::strsplit( names(gomap), split="-"), "[" , 1 )
 names(gomap) = gomap_gene_names
+# gene names
+gname = read.table(genename_fn)
+colnames(gname) = c("gene","gene_name")
 
 # matrix of TPMs transcript
 tpm = read.table(tpm_fn)
@@ -240,5 +219,122 @@ suppressMessages(topgofun(
 
 #### Lists of genes ####
 
- 
 
+pdf(file=sprintf("%s/fa_genes_diffspl.pdf", outcode),height=6,width=8)
+
+
+# FA elongases: one
+interestlist = as.character(pannu[ pannu$domain == "ELO" ,]$gene)
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+
+for (gene in interestlist) {
+  
+  # psi data main heatmap
+  txis = as.vector(tx2gene[tx2gene$gene == gene, "transcript"])
+  tpsi = ioi[rownames(ioi) %in% txis, ]
+  tpsi = tpsi[ order(row.names(tpsi)),]
+  
+  # retrieve pval for diff splicing and lateral annotation
+  tann = data.frame(
+    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
+  )
+  
+  # gene name
+  gnom = as.character(gname[gname$gene == gene, "gene_name"])
+  
+  # clean names for nicer plots
+  rownames(tpsi) = gsub("Anogam_","", rownames(tpsi))
+  rownames(tann) = gsub("Anogam_","", rownames(tann))
+  
+  # plot heatmap
+  pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
+           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
+           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           main=sprintf("PSI\n%s\n%s", gene, gnom))
+}
+
+
+# FA desaturases: three
+interestlist = as.character(pannu[ pannu$domain == "FA_desaturase" ,]$gene)
+interestlist = c(interestlist, "Anogam_AGAP003050") # added manually because of Pfam misannotation
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+
+for (gene in interestlist) {
+  
+  # psi data main heatmap
+  txis = as.vector(tx2gene[tx2gene$gene == gene, "transcript"])
+  tpsi = ioi[rownames(ioi) %in% txis, ]
+  tpsi = tpsi[ order(row.names(tpsi)),]
+  
+  # retrieve pval for diff splicing and lateral annotation
+  tann = data.frame(
+    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
+  )
+  
+  # gene name
+  gnom = as.character(gname[gname$gene == gene, "gene_name"])
+  
+  # clean names for nicer plots
+  rownames(tpsi) = gsub("Anogam_","", rownames(tpsi))
+  rownames(tann) = gsub("Anogam_","", rownames(tann))
+  
+  # plot heatmap
+  pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
+           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
+           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           main=sprintf("PSI\n%s\n%s", gene, gnom))
+}
+
+
+
+# FA decarboxylases: three (one not present in males)
+interestlist = as.character(pannu[ pannu$domain == "p450" ,]$gene)
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+
+for (gene in interestlist) {
+  
+  # psi data main heatmap
+  txis = as.vector(tx2gene[tx2gene$gene == gene, "transcript"])
+  tpsi = ioi[rownames(ioi) %in% txis, ]
+  tpsi = tpsi[ order(row.names(tpsi)),]
+  
+  # retrieve pval for diff splicing and lateral annotation
+  tann = data.frame(
+    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
+  )
+  
+  # gene name
+  gnom = as.character(gname[gname$gene == gene, "gene_name"])
+  
+  # clean names for nicer plots
+  rownames(tpsi) = gsub("Anogam_","", rownames(tpsi))
+  rownames(tann) = gsub("Anogam_","", rownames(tann))
+  
+  # plot heatmap
+  pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
+           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
+           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           main=sprintf("PSI\n%s\n%s", gene, gnom))
+}
+
+
+
+# FA synthases: ignore them, there is not diff splicing
+interestlist = as.character(pannu[ pannu$domain == "ketoacyl-synt" ,]$gene)
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+
+# FA reductases: none
+interestlist = as.character(pannu[ pannu$domain == "NAD_binding_4" ,]$gene)
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+
+
+dev.off()
