@@ -1,3 +1,4 @@
 .ipynb_checkpoints/*
 .Rhistory
 data_genome/Anogam_gDNA.fasta
+tmp/*
