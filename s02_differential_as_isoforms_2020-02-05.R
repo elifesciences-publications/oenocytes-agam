@@ -121,7 +121,7 @@ ioi_kclu = kmeansfun(
 # differentially included isoforms, with pval
 ioi_diff_OeCa_F = pval_from_CDF(
   matrix_frequencies = ioi, matrix_tpms = tpm,
-  name_group_i = "OecyF",name_group_j = "BulkF",
+  name_group_i = "Oe",name_group_j = "Ca",
   samples_group_i = as.vector(sf[sf$group=="OecyF",]$sample) ,samples_group_j = as.vector(sf[sf$group=="BulkF",]$sample),
   comparison_code = "OeCa F",
   pval_correction = "BH",
@@ -129,16 +129,35 @@ ioi_diff_OeCa_F = pval_from_CDF(
 
 ioi_diff_OeCa_M = pval_from_CDF(
   matrix_frequencies = ioi, matrix_tpms = tpm,
-  name_group_i = "OecyM",name_group_j = "BulkM",
+  name_group_i = "Oe",name_group_j = "Ca",
   samples_group_i = as.vector(sf[sf$group=="OecyM",]$sample) ,samples_group_j = as.vector(sf[sf$group=="BulkM",]$sample),
   comparison_code = "OeCa M",
   pval_correction = "BH",
   ecdf_area = 1000)
 
+ioi_diff_OeCa_A = pval_from_CDF(
+  matrix_frequencies = ioi, matrix_tpms = tpm,
+  name_group_i = "Oe",name_group_j = "Ca",
+  samples_group_i = as.vector(sf[sf$tissue=="Oecy",]$sample) ,samples_group_j = as.vector(sf[sf$tissue=="Bulk",]$sample),
+  comparison_code = "OeCa A",
+  pval_correction = "BH",
+  ecdf_area = 1000)
+
+ioi_diff_FM_Oe = pval_from_CDF(
+  matrix_frequencies = ioi, matrix_tpms = tpm,
+  name_group_i = "Oe",name_group_j = "Ca",
+  samples_group_i = as.vector(sf[sf$group=="OecyF",]$sample) ,samples_group_j = as.vector(sf[sf$group=="OecyM",]$sample),
+  comparison_code = "FM Oe",
+  pval_correction = "BH",
+  ecdf_area = 1000)
+
+
 # plot tpm v. dPSI values
 pdf(file=sprintf("%s/evaluate_dpsi_tpm_pCDF.pdf", outcode),height=5,width=8)
 ioi_diff_OeCa_F$plot()
 ioi_diff_OeCa_M$plot()
+ioi_diff_OeCa_A$plot()
+ioi_diff_FM_Oe$plot()
 dev.off()
 
 # volcano plots
@@ -154,13 +173,29 @@ ioi_diff_OeCa_M_volcano = volcanoexp(
   fileprefix = sprintf("%s/diff", outcode), pthreshold = 0.05, 
   fc_varname = "freq_diff", fcp = "Oe", fcn = "Ca", pval_varname = "pval", xlims = c(-1,1), ylims = c(0,-5))
 
+ioi_diff_OeCa_A_volcano = volcanoexp(
+  table = ioi_diff_OeCa_A$result, 
+  plotname = "OeCa_A", 
+  fileprefix = sprintf("%s/diff", outcode), pthreshold = 0.05, 
+  fc_varname = "freq_diff", fcp = "Oe", fcn = "Ca", pval_varname = "pval", xlims = c(-1,1), ylims = c(0,-5))
+
+ioi_diff_FM_Oe_volcano = volcanoexp(
+  table = ioi_diff_FM_Oe$result, 
+  plotname = "OeCa_A", 
+  fileprefix = sprintf("%s/diff", outcode), pthreshold = 0.05, 
+  fc_varname = "freq_diff", fcp = "F", fcn = "M", pval_varname = "pval", xlims = c(-1,1), ylims = c(0,-5))
+
 # save tables
 write.table(ioi_diff_OeCa_F$result,file=sprintf("%s/diff.OeCa_F_results.csv", outcode), sep="\t", quote = F, row.names = F)
 write.table(ioi_diff_OeCa_M$result,file=sprintf("%s/diff.OeCa_M_results.csv", outcode), sep="\t", quote = F, row.names = F)
+write.table(ioi_diff_OeCa_A$result,file=sprintf("%s/diff.OeCa_A_results.csv", outcode), sep="\t", quote = F, row.names = F)
+write.table(ioi_diff_FM_Oe$result,file=sprintf("%s/diff.MF_Oe_results.csv", outcode), sep="\t", quote = F, row.names = F)
 
 # list of genes with isoforms that are included in Oe
 ioi_diff_OeCa_F_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_F_volcano$genes_sp,"gene"]))
 ioi_diff_OeCa_M_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_M_volcano$genes_sp,"gene"]))
+ioi_diff_OeCa_A_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_A_volcano$genes_sp,"gene"]))
+ioi_diff_FM_Oe_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_FM_Oe_volcano$genes_sp,"gene"]))
 
 
 
@@ -171,18 +206,36 @@ pdf(file=sprintf("%s/overlap_dpsi_OeCa_FM.pdf", outcode),height=4,width=4)
 
 # overlap at gene level: which genes are differentially spliced in males and females, between Oe and Ca?
 overlap_OeCa_FM_genes = venn.two(
-  list1 = ioi_diff_OeCa_F_genes, list2 = ioi_diff_OeCa_M_genes, catname1 = "Female", catname2 = "Male", 
-  main = "OeCa dPSI genes in females and males", col1 = "cyan4", col2 =  "orange")
+  list1 = ioi_diff_OeCa_F_genes, list2 = ioi_diff_OeCa_M_genes, catname1 = "Female", catname2 = "Male",
+  main = "OeCa dPSI genes in females and males", col1 = "cyan3", col2 =  "orange")
 
 # overlap at isoform level: which isoforms are differentially INCLUDED IN OENOCYTES in males and females? (aka dPSI>0)
 overlap_OeCa_FM_isoforms = venn.two(
-  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male", 
-  main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan4", col2 =  "orange")
+  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male",
+  main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan3", col2 =  "orange")
+
+# overlap at isoform level: which isoforms are differentially INCLUDED IN OENOCYTES in males and females? (aka dPSI>0)
+overlap_OeCa_FM_isoforms = venn.two(
+  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male",
+  main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan3", col2 =  "orange")
 
 # overlap at isoform level: which isoforms are differentially INCLUDED IN CARCASS in males and females? (aka dPSI<0); MIRROR IMAGE OF PREVIOUS PLOT
 overlap_OeCa_FM_isoforms = venn.two(
-  list1 = ioi_diff_OeCa_F_volcano$genes_sn, list2 = ioi_diff_OeCa_M_volcano$genes_sn, catname1 = "Female", catname2 = "Male", 
-  main = "OeCa dPSI<0 isoforms in females and males (Ca)", col1 = "cyan4", col2 =  "orange")
+  list1 = ioi_diff_OeCa_F_volcano$genes_sn, list2 = ioi_diff_OeCa_M_volcano$genes_sn, catname1 = "Female", catname2 = "Male",
+  main = "OeCa dPSI<0 isoforms in females and males (Ca)", col1 = "cyan3", col2 =  "orange")
+
+# include tissue comparisons with pooled tissues (is it better?)
+overlap_OeCa_FMA_genes = venn.three(
+  list1=ioi_diff_OeCa_F_genes, list2= ioi_diff_OeCa_M_genes, list3=ioi_diff_OeCa_A_genes,
+  catname1="Female", catname2 = "Male", catname3 = "All", 
+  col1 = "cyan3", col2 = "orange", col3 = "blue",
+  main = "OeCa dPSI genes in females, males, and all")
+
+overlap_OeCa_FMA_isoforms = venn.three(
+  list1=ioi_diff_OeCa_F_volcano$genes_sp, list2= ioi_diff_OeCa_M_volcano$genes_sp, list3=ioi_diff_OeCa_A_volcano$genes_sp,
+  catname1="Female", catname2 = "Male", catname3 = "All", 
+  col1 = "cyan3", col2 = "orange", col3 = "blue",
+  main = "OeCa dPSI isoforms in females, males, and all")
 
 dev.off()
 
@@ -202,6 +255,16 @@ hygeofun(list_interest=ioi_diff_OeCa_M_genes,
          outputname=sprintf("%s/diff", outcode),
          name_geneset="OeCa_M",topnum = 40, padjbool = F)
 
+hygeofun(list_interest=ioi_diff_OeCa_A_genes, 
+         annotation=pannu,gene_col="gene",ano_col="domain",
+         outputname=sprintf("%s/diff", outcode),
+         name_geneset="OeCa_A",topnum = 40, padjbool = F)
+
+hygeofun(list_interest=ioi_diff_FM_Oe_genes, 
+         annotation=pannu,gene_col="gene",ano_col="domain",
+         outputname=sprintf("%s/diff", outcode),
+         name_geneset="FM_Oe",topnum = 40, padjbool = F)
+
 # GO enrichments
 suppressMessages(topgofun(
   list_interest=ioi_diff_OeCa_F_genes,gomap=gomap,
@@ -215,6 +278,18 @@ suppressMessages(topgofun(
   outputname=sprintf("%s/diff", outcode),
   name_geneset="OeCa_M",topnum=40))
 
+suppressMessages(topgofun(
+  list_interest=ioi_diff_OeCa_A_genes,gomap=gomap,
+  ontologyset=c("BP","MF","CC"),tg_test="fisher",tg_algorithm="elim",
+  outputname=sprintf("%s/diff", outcode),
+  name_geneset="OeCa_A",topnum=40))
+
+suppressMessages(topgofun(
+  list_interest=ioi_diff_FM_Oe_genes,gomap=gomap,
+  ontologyset=c("BP","MF","CC"),tg_test="fisher",tg_algorithm="elim",
+  outputname=sprintf("%s/diff", outcode),
+  name_geneset="FM_Oe",topnum=40))
+
 
 
 #### Lists of genes ####
@@ -225,7 +300,11 @@ pdf(file=sprintf("%s/fa_genes_diffspl.pdf", outcode),height=6,width=8)
 
 # FA elongases: one
 interestlist = as.character(pannu[ pannu$domain == "ELO" ,]$gene)
-interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist],
+                        ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist],
+                        ioi_diff_OeCa_A_genes[ioi_diff_OeCa_A_genes %in% interestlist],
+                        ioi_diff_FM_Oe_genes[ioi_diff_FM_Oe_genes %in% interestlist]
+))
 
 for (gene in interestlist) {
   
@@ -236,10 +315,15 @@ for (gene in interestlist) {
   
   # retrieve pval for diff splicing and lateral annotation
   tann = data.frame(
-    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
-    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_M" = as.factor(as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "OeCa_F" = as.factor(as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "FM_Oe"  = as.factor(as.numeric(ioi_diff_FM_Oe$result[ioi_diff_FM_Oe$result$event %in% rownames(tpsi), "pval"] < 0.05)),
     row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
   )
+  tanc = list(OeCa_F = c("0" = "gray","1" = "cyan3"),
+              OeCa_M = c("0" = "gray","1" = "orange"),
+              FM_Oe = c("0" = "gray","1" = "blue"))
+  
   
   # gene name
   gnom = as.character(gname[gname$gene == gene, "gene_name"])
@@ -250,9 +334,9 @@ for (gene in interestlist) {
   
   # plot heatmap
   pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
-           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           cellwidth = 18, cellheight = 12, na_col = "gray",
            border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
-           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           gaps_col = seq(0,12, by=3), annotation_row = tann, annotation_colors = tanc,
            main=sprintf("PSI\n%s\n%s", gene, gnom))
 }
 
@@ -260,7 +344,11 @@ for (gene in interestlist) {
 # FA desaturases: three
 interestlist = as.character(pannu[ pannu$domain == "FA_desaturase" ,]$gene)
 interestlist = c(interestlist, "Anogam_AGAP003050") # added manually because of Pfam misannotation
-interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist],
+                        ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist],
+                        ioi_diff_OeCa_A_genes[ioi_diff_OeCa_A_genes %in% interestlist],
+                        ioi_diff_FM_Oe_genes[ioi_diff_FM_Oe_genes %in% interestlist]
+))
 
 for (gene in interestlist) {
   
@@ -271,10 +359,15 @@ for (gene in interestlist) {
   
   # retrieve pval for diff splicing and lateral annotation
   tann = data.frame(
-    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
-    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_M" = as.factor(as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "OeCa_F" = as.factor(as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "FM_Oe"  = as.factor(as.numeric(ioi_diff_FM_Oe$result[ioi_diff_FM_Oe$result$event %in% rownames(tpsi), "pval"] < 0.05)),
     row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
   )
+  tanc = list(OeCa_F = c("0" = "gray","1" = "cyan3"),
+              OeCa_M = c("0" = "gray","1" = "orange"),
+              FM_Oe = c("0" = "gray","1" = "blue"))
+  
   
   # gene name
   gnom = as.character(gname[gname$gene == gene, "gene_name"])
@@ -285,9 +378,9 @@ for (gene in interestlist) {
   
   # plot heatmap
   pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
-           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           cellwidth = 18, cellheight = 12, na_col = "gray",
            border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
-           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           gaps_col = seq(0,12, by=3), annotation_row = tann, annotation_colors = tanc,
            main=sprintf("PSI\n%s\n%s", gene, gnom))
 }
 
@@ -295,7 +388,11 @@ for (gene in interestlist) {
 
 # FA decarboxylases: three (one not present in males)
 interestlist = as.character(pannu[ pannu$domain == "p450" ,]$gene)
-interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist],
+                        ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist],
+                        ioi_diff_OeCa_A_genes[ioi_diff_OeCa_A_genes %in% interestlist],
+                        ioi_diff_FM_Oe_genes[ioi_diff_FM_Oe_genes %in% interestlist]
+))
 
 for (gene in interestlist) {
   
@@ -306,10 +403,14 @@ for (gene in interestlist) {
   
   # retrieve pval for diff splicing and lateral annotation
   tann = data.frame(
-    "OeCa_M" = as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05),
-    "OeCa_F" = as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05),
+    "OeCa_M" = as.factor(as.numeric(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "OeCa_F" = as.factor(as.numeric(ioi_diff_OeCa_F$result[ioi_diff_OeCa_F$result$event %in% rownames(tpsi), "pval"] < 0.05)),
+    "FM_Oe"  = as.factor(as.numeric(ioi_diff_FM_Oe$result[ioi_diff_FM_Oe$result$event %in% rownames(tpsi), "pval"] < 0.05)),
     row.names = rownames(ioi_diff_OeCa_M$result[ioi_diff_OeCa_M$result$event %in% rownames(tpsi),])
   )
+  tanc = list(OeCa_F = c("0" = "gray","1" = "cyan3"),
+              OeCa_M = c("0" = "gray","1" = "orange"),
+              FM_Oe = c("0" = "gray","1" = "blue"))
   
   # gene name
   gnom = as.character(gname[gname$gene == gene, "gene_name"])
@@ -320,9 +421,9 @@ for (gene in interestlist) {
   
   # plot heatmap
   pheatmap(tpsi, color = col.fun(20), breaks = seq(0,1,length.out = 20), 
-           cellwidth = 18, cellheight = 12, na_col = "dodgerblue4",
+           cellwidth = 18, cellheight = 12, na_col = "gray",
            border_color = "white", cluster_cols=F, cluster_rows=F,display_numbers = T, number_color = "red",
-           gaps_col = seq(0,12, by=3), annotation_row = tann, 
+           gaps_col = seq(0,12, by=3), annotation_row = tann, annotation_colors = tanc,
            main=sprintf("PSI\n%s\n%s", gene, gnom))
 }
 
@@ -330,11 +431,19 @@ for (gene in interestlist) {
 
 # FA synthases: ignore them, there is not diff splicing
 interestlist = as.character(pannu[ pannu$domain == "ketoacyl-synt" ,]$gene)
-interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist],
+                        ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist],
+                        ioi_diff_OeCa_A_genes[ioi_diff_OeCa_A_genes %in% interestlist],
+                        ioi_diff_FM_Oe_genes[ioi_diff_FM_Oe_genes %in% interestlist]
+))
 
 # FA reductases: none
 interestlist = as.character(pannu[ pannu$domain == "NAD_binding_4" ,]$gene)
-interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist] , ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist]))
+interestlist = unique(c(ioi_diff_OeCa_F_genes[ioi_diff_OeCa_F_genes %in% interestlist],
+                        ioi_diff_OeCa_M_genes[ioi_diff_OeCa_M_genes %in% interestlist],
+                        ioi_diff_OeCa_A_genes[ioi_diff_OeCa_A_genes %in% interestlist],
+                        ioi_diff_FM_Oe_genes[ioi_diff_FM_Oe_genes %in% interestlist]
+))
 
 
 dev.off()
