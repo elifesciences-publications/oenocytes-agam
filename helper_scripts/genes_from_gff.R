@@ -21,6 +21,7 @@ plot_gene = function(gff_df, gene_id, pos_start=NA, pos_end=NA, flanking_bp=100,
   txis = gff_txis[ grep(sprintf("Parent=%s", gene_id), gff_txis$attributes) , ]
   txis_ids = gsub("ID=","",txis$attributes)
   txis_ids = gsub(";.*","",txis_ids)
+  txis_ids = sort(txis_ids, decreasing = T)
   
   # genewise info
   chrom  = as.character(gene$seqid)
