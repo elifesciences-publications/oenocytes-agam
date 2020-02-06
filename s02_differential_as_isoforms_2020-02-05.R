@@ -181,7 +181,7 @@ ioi_diff_OeCa_A_volcano = volcanoexp(
 
 ioi_diff_FM_Oe_volcano = volcanoexp(
   table = ioi_diff_FM_Oe$result, 
-  plotname = "OeCa_A", 
+  plotname = "FM_Oe", 
   fileprefix = sprintf("%s/diff", outcode), pthreshold = 0.05, 
   fc_varname = "freq_diff", fcp = "F", fcn = "M", pval_varname = "pval", xlims = c(-1,1), ylims = c(0,-5))
 
@@ -189,14 +189,13 @@ ioi_diff_FM_Oe_volcano = volcanoexp(
 write.table(ioi_diff_OeCa_F$result,file=sprintf("%s/diff.OeCa_F_results.csv", outcode), sep="\t", quote = F, row.names = F)
 write.table(ioi_diff_OeCa_M$result,file=sprintf("%s/diff.OeCa_M_results.csv", outcode), sep="\t", quote = F, row.names = F)
 write.table(ioi_diff_OeCa_A$result,file=sprintf("%s/diff.OeCa_A_results.csv", outcode), sep="\t", quote = F, row.names = F)
-write.table(ioi_diff_FM_Oe$result,file=sprintf("%s/diff.MF_Oe_results.csv", outcode), sep="\t", quote = F, row.names = F)
+write.table(ioi_diff_FM_Oe$result,file=sprintf("%s/diff.FM_Oe_results.csv", outcode), sep="\t", quote = F, row.names = F)
 
 # list of genes with isoforms that are included in Oe
 ioi_diff_OeCa_F_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_F_volcano$genes_sp,"gene"]))
 ioi_diff_OeCa_M_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_M_volcano$genes_sp,"gene"]))
 ioi_diff_OeCa_A_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_OeCa_A_volcano$genes_sp,"gene"]))
-ioi_diff_FM_Oe_genes = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_FM_Oe_volcano$genes_sp,"gene"]))
-
+ioi_diff_FM_Oe_genes  = as.vector(unique(tx2gene[tx2gene$transcript %in% ioi_diff_FM_Oe_volcano$genes_sp,"gene"]))
 
 
 
@@ -206,31 +205,51 @@ pdf(file=sprintf("%s/overlap_dpsi_OeCa_FM.pdf", outcode),height=4,width=4)
 
 # overlap at gene level: which genes are differentially spliced in males and females, between Oe and Ca?
 overlap_OeCa_FM_genes = venn.two(
-  list1 = ioi_diff_OeCa_F_genes, list2 = ioi_diff_OeCa_M_genes, catname1 = "Female", catname2 = "Male",
+  list1 = ioi_diff_OeCa_F_genes, list2 = ioi_diff_OeCa_M_genes, 
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_genes)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_genes)), 
   main = "OeCa dPSI genes in females and males", col1 = "cyan3", col2 =  "orange")
 
 # overlap at isoform level: which isoforms are differentially INCLUDED IN OENOCYTES in males and females? (aka dPSI>0)
 overlap_OeCa_FM_isoforms = venn.two(
-  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male",
+  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, 
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_volcano$genes_sp)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_volcano$genes_sp)), 
   main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan3", col2 =  "orange")
 
 # overlap at isoform level: which isoforms are differentially INCLUDED IN CARCASS in males and females? (aka dPSI<0); MIRROR IMAGE OF PREVIOUS PLOT
 overlap_OeCa_FM_isoforms = venn.two(
-  list1 = ioi_diff_OeCa_F_volcano$genes_sn, list2 = ioi_diff_OeCa_M_volcano$genes_sn, catname1 = "Female", catname2 = "Male",
+  list1 = ioi_diff_OeCa_F_volcano$genes_sn, list2 = ioi_diff_OeCa_M_volcano$genes_sn, 
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_volcano$genes_sn)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_volcano$genes_sn)), 
   main = "OeCa dPSI<0 isoforms in females and males (Ca)", col1 = "cyan3", col2 =  "orange")
 
 # include tissue comparisons with pooled tissues (is it better?)
 overlap_OeCa_FMA_genes = venn.three(
   list1=ioi_diff_OeCa_F_genes, list2= ioi_diff_OeCa_M_genes, list3=ioi_diff_OeCa_A_genes,
-  catname1="Female", catname2 = "Male", catname3 = "All", 
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_genes)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_genes)), 
+  catname3= sprintf("Other\nn=%i", length(ioi_diff_OeCa_A_genes)),
   col1 = "cyan3", col2 = "orange", col3 = "blue",
   main = "OeCa dPSI genes in females, males, and all")
 
 overlap_OeCa_FMA_isoforms = venn.three(
   list1=ioi_diff_OeCa_F_volcano$genes_sp, list2= ioi_diff_OeCa_M_volcano$genes_sp, list3=ioi_diff_OeCa_A_volcano$genes_sp,
-  catname1="Female", catname2 = "Male", catname3 = "All", 
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_volcano$genes_sp)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_volcano$genes_sp)), 
+  catname3= sprintf("All\nn=%i", length(ioi_diff_OeCa_A_volcano$genes_sp)),
   col1 = "cyan3", col2 = "orange", col3 = "blue",
   main = "OeCa dPSI isoforms in females, males, and all")
+
+# include tissue comparisons with pooled tissues (is it better?)
+overlap_OeCa_FM_Oe_FM_genes = venn.three(
+  list1=ioi_diff_OeCa_F_genes, list2= ioi_diff_OeCa_M_genes, list3=ioi_diff_FM_Oe_genes,
+  catname1= sprintf("Female\nn=%i", length(ioi_diff_OeCa_F_genes)), 
+  catname2= sprintf("Male\nn=%i", length(ioi_diff_OeCa_M_genes)), 
+  catname3= sprintf("Other\nn=%i", length(ioi_diff_FM_Oe_genes)),
+  col1 = "cyan3", col2 = "orange", col3 = "red",
+  main = "OeCa dPSI genes in females, males, and ALSO in Oe FM")
+
 
 dev.off()
 
