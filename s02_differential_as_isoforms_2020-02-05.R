@@ -214,11 +214,6 @@ overlap_OeCa_FM_isoforms = venn.two(
   list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male",
   main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan3", col2 =  "orange")
 
-# overlap at isoform level: which isoforms are differentially INCLUDED IN OENOCYTES in males and females? (aka dPSI>0)
-overlap_OeCa_FM_isoforms = venn.two(
-  list1 = ioi_diff_OeCa_F_volcano$genes_sp, list2 = ioi_diff_OeCa_M_volcano$genes_sp, catname1 = "Female", catname2 = "Male",
-  main = "OeCa dPSI>0 isoforms in females and males (Oe)", col1 = "cyan3", col2 =  "orange")
-
 # overlap at isoform level: which isoforms are differentially INCLUDED IN CARCASS in males and females? (aka dPSI<0); MIRROR IMAGE OF PREVIOUS PLOT
 overlap_OeCa_FM_isoforms = venn.two(
   list1 = ioi_diff_OeCa_F_volcano$genes_sn, list2 = ioi_diff_OeCa_M_volcano$genes_sn, catname1 = "Female", catname2 = "Male",
