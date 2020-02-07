@@ -3,6 +3,7 @@
 # input files
 library(ape)
 library(phytools)
+library(phangorn)
 
 phy_list  = c("FAelongase/FAelongase.00.lt.iqt.treefile",
               "FAdesaturase/FAdesaturase.00.lt.iqt.treefile",
@@ -13,7 +14,7 @@ pdf(file="gene_phylogenies.pdf",height=12,width=9)
 for (phi in phy_list) {
   
   phy = ape::read.tree(phi)
-  phy = phytools::midpoint.root(phy)
+  phy = phangorn::midpoint(phy)
   phy = ladderize(phy, right = FALSE)
   
   # paint branches
@@ -67,7 +68,7 @@ pdf(file="gene_phylogenies_p450.pdf",height=48,width=9)
 for (phi in phy_list) {
   
   phy = ape::read.tree(phi)
-  phy = phytools::midpoint.root(phy)
+  phy = phangorn::midpoint(phy)
   phy = ladderize(phy, right = FALSE)
   
   # paint branches
