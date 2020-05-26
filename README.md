@@ -112,7 +112,7 @@ salmon quant -i Anogam_long.cds_mcherry.salmon.index -l A -p 10 -1 sampleA_1.fas
 The required files are not provided in this repository, but they can be found in public repositores:
 
 * *Anopheles gambiae* transcripts: from Vectorbase, annotation version `AgamP4.9`.
-* raw reads have been deposited to ENA, under the `XXX` accession.
+* raw reads have been deposited to ENA, under the `PRJEB37240` accession code.
 
 ## Requirements
 
