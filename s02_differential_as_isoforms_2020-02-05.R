@@ -15,8 +15,8 @@ library(topGO)
 
 # input files
 si       = "Anogam"                                  # Species name (requires Spi_long.annot.gff and Spi_gDNA.fasta)
-ioi_fn   = "data_as_suppa/Anogam_suppa.2020-02-05.ioi_isoforms_isoform.psi"   # IOE suppa file
-tpm_fn   = "data_as_suppa/Anogam_suppa.2020-02-05.isoforms.tpm"   # IOE suppa file
+ioi_fn   = "data_as_suppa/Anogam_suppa.2020-02-05.ioi_isoforms_isoform.psi"   # ioi suppa file
+tpm_fn   = "data_as_suppa/Anogam_suppa.2020-02-05.isoforms.tpm"   # ioi suppa file
 outcode  = "results_as/"                             # Output code SUPPA analysis (eg *14mai18*, used for retrieving suppa groupings!)
 samgrup  = "data_metadata/samples_classification.csv"                  # sample list (first col) & grouping (2nd, 3rd, etc.)
 grupnoms    = c("group","sex","tissue")                 # group names (2nd, 3rd, 4th... cols)
