@@ -1,6 +1,6 @@
-# Transcriptome of *Anopheles gambiae* oenocytes
+# Isolation and transcriptomic analysis of *Anopheles gambiae* oenocytes enables the delineation of the cuticular hydrocarbon biosynthetic pathway — transcriptomic analysis
 
-Code and data to reproduce the analyses of differential gene expression from [**Cuticular hydrocarbon biosynthesis in malaria vectors: insights from the adult oenocyte transcriptome**](https://www.biorxiv.org/content/10.1101/2020.04.28.065938v1) (Grigoraki et al., bioRxiv 2020).
+Code and data to reproduce the analyses of differential gene expression from [**Isolation and transcriptomic analysis of *Anopheles gambiae* oenocytes enables the delineation of the cuticular hydrocarbon biosynthetic pathway**](https://www.biorxiv.org/content/10.1101/2020.04.28.065938v1) (Grigoraki et al., bioRxiv 2020).
 
 ## Quick how-to
 
