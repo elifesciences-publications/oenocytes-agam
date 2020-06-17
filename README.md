@@ -1,4 +1,8 @@
- [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+This code is associated with the paper from Grau-BOVÉ et al., "Isolation and transcriptomic analysis of Anopheles gambiae oenocytes enables the delineation of hydrocarbon biosynthesis". eLife, 2020. http://doi.org/10.7554/eLife.58019
+
+
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # Isolation and transcriptomic analysis of *Anopheles gambiae* oenocytes enables the delineation of the cuticular hydrocarbon biosynthetic pathway — transcriptomic analysis
 
